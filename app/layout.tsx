@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Poppins, Geist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/footer/Footer";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body className={`${inter.className} ${poppins.variable}`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

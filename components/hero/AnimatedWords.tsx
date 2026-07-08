@@ -46,7 +46,7 @@ const AnimatedWords = () => {
             duration: 0.5,
             ease: "easeInOut",
           }}
-          className="text-xl sm:text-3xl md:text-4xl tracking-tight uppercase bg-linear-to-r from-cyan-800 to-violet-600 bg-clip-text text-transparent font-semibold"
+          className="text-xl sm:text-3xl md:text-4xl tracking-tight uppercase bg-linear-to-r  from-blue-800 via-cyan-700 to-violet-950 bg-clip-text text-transparent font-semibold"
         >
           {words[currentIndex]}
         </motion.p>

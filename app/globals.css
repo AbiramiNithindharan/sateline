@@ -159,3 +159,37 @@ h6 {
     transform: translate(-50%, -30%) scale(1);
   }
 }
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 35s linear infinite;
+}
+
+
+.clipped-image {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+}
