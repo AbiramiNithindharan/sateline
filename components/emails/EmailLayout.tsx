@@ -48,7 +48,7 @@ export default function EmailLayout({ title, children }: EmailLayoutProps) {
                       >
                         <div style={{ display: "flex", gap: "2" }}>
                           <img
-                            src="Logo.png"
+                            src="Logo.jpg"
                             alt="logo"
                             style={{
                               height: "28px",

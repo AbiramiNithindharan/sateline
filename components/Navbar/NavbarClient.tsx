@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef, useState, Fragment } from "react";
-import Logo from "@/public/Logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -55,7 +54,7 @@ const NavbarClient = () => {
           <div className="flex items-center px-2 gap-1.5 ">
             <Link href="/">
               <Image
-                src={Logo}
+                src="Logo.jpg"
                 alt="Sateline logo"
                 width={24}
                 height={24}
