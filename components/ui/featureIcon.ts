@@ -53,9 +53,19 @@ import {
   CalendarClock,
   LayoutTemplate,
   Search,
+  Mail,
+  Phone,
+  MapPin,
+  Clock3,
+  MessageCircleMore,
 } from "lucide-react";
 
 export const featureIcon = {
+  MessageCircleMore,
+  Clock3,
+  MapPin,
+  Phone,
+  Mail,
   Search,
   LayoutTemplate,
   CalendarClock,
