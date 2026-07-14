@@ -1,5 +1,7 @@
 import ContactContent from "./ContactContent";
 import ContactForm from "./ContactForm";
+import { Suspense } from "react";
+import ContactFormSkeleton from "./ContactFormSkeleton";
 
 export default function Contact() {
   return (
@@ -27,8 +29,9 @@ export default function Contact() {
           "
         >
           <ContactContent />
-
-          <ContactForm />
+          <Suspense fallback={<ContactFormSkeleton />}>
+            <ContactForm />
+          </Suspense>
         </div>
       </div>
     </section>
