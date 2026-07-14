@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import { defaultMetadata } from "@/lib/seo";
-
+import { organizationSchema } from "@/lib/seo";
 export const metadata = defaultMetadata;
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -41,6 +41,12 @@ export default function RootLayout({
       <body
         className={`${inter.className} ${poppins.variable} ${outfit.variable}`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
         <Navbar />
         {children}
         <Footer />

@@ -1,6 +1,7 @@
 import ContactForm from "./ContactForm";
 import ContactInformation from "./ContactInformation";
-
+import { Suspense } from "react";
+import ContactFormSkeleton from "./ContactFormSkeleton";
 import { ContactInformation as ContactInformationType } from "@/types/ContactPage";
 
 interface Props {
@@ -12,7 +13,9 @@ export default function ContactSection({ information }: Props) {
     <section className="py-12 md:py-24">
       <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2">
         <div>
-          <ContactForm />
+          <Suspense fallback={<ContactFormSkeleton />}>
+            <ContactForm />
+          </Suspense>
         </div>
 
         <div>
