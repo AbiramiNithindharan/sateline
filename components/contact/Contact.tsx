@@ -3,7 +3,7 @@ import ContactForm from "./ContactForm";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24">
+    <section id="contact" className="py-12 md:py-24">
       <div
         className="
           container
@@ -12,14 +12,13 @@ export default function Contact() {
           px-4
         "
       >
-        <div className="mb-32">
+        <div className="mb-12 md:mb-32">
           <h2 className="text-gray-700 text-center text-4xl lg:text-6xl ">
             Contact Us
           </h2>
         </div>
         <div
           className="
-        
             grid
             gap-12
             lg:grid-cols-2

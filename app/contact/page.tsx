@@ -4,6 +4,8 @@ import { ContactIntro, ContactSection } from "@/components/contact";
 import { contactHeroData } from "@/lib/PageHeroData";
 import { contactData } from "@/lib/contact";
 import type { Metadata } from "next";
+import { ProcessSection } from "@/components/contact/ProcessSection";
+import { FAQSection } from "@/components/contact/FAQSection";
 export const metadata: Metadata = {
   title: "Contact Us | Sateline Software",
   description:
@@ -16,6 +18,8 @@ export default function ContactPage() {
 
       <ContactIntro {...contactData.intro} />
       <ContactSection information={contactData.information} />
+      <ProcessSection />
+      <FAQSection />
     </>
   );
 }

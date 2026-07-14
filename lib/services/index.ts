@@ -15,7 +15,6 @@ export const serviceList = [
   crmSolutions,
   aiChatbots,
   ecommerceSolutions,
-  crmSolutions,
   saasPlatforms,
   paymentIntegration,
   mobileAppDevelopment,

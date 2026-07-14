@@ -7,15 +7,15 @@ interface Props {
 export default function ContactInfoCard({ card }: Props) {
   const Icon = featureIcon[card.icon];
   return (
-    <div className="rounded-2xl border bg-card p-6 transition-all duration-300 hover:shadow-lg">
-      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-        <Icon className="h-7 w-7 text-primary" />
+    <div className="rounded-2xl border bg-card p-2 transition-all duration-300 hover:shadow-lg">
+      <div className="mb-4 flex items-center justify-start gap-4">
+        <div className=" flex items-center justify-start gap-2">
+          <Icon className="h-3 w-3 text-primary" />
+          <h3 className="font-semibold text-sm">{card.title} :</h3>
+        </div>
+
+        <p className=" font-medium text-primary text-sm">{card.value}</p>
       </div>
-
-      <h3 className="text-lg font-semibold">{card.title}</h3>
-
-      <p className="mt-2 font-medium text-primary">{card.value}</p>
-
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
         {card.description}
       </p>

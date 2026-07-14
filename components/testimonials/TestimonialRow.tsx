@@ -20,7 +20,8 @@ export default function TestimonialRow({
         className={`
           flex
           w-max
-          gap-6
+          gap-4
+          md:gap-6
           py-3
           ${reverse ? "animate-marquee-reverse" : "animate-marquee"}
           group-hover:paused

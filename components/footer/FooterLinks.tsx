@@ -1,7 +1,11 @@
-type FooterLinksProps = {
+import Link from "next/link";
+
+import type { FooterLink } from "@/lib/footerData";
+
+interface FooterLinksProps {
   title: string;
-  items: string[];
-};
+  items: FooterLink[];
+}
 
 export default function FooterLinks({ title, items }: FooterLinksProps) {
   return (
@@ -10,16 +14,17 @@ export default function FooterLinks({ title, items }: FooterLinksProps) {
 
       <ul className="space-y-3">
         {items.map((item) => (
-          <li
-            key={item}
-            className="
-              text-muted-foreground
-              hover:text-blue-900
-              transition-colors
-              cursor-pointer
-            "
-          >
-            {item}
+          <li key={item.href}>
+            <Link
+              href={item.href}
+              className="
+        text-muted-foreground
+        transition-colors
+        hover:text-primary
+      "
+            >
+              {item.label}
+            </Link>
           </li>
         ))}
       </ul>

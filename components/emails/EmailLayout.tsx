@@ -48,8 +48,8 @@ export default function EmailLayout({ title, children }: EmailLayoutProps) {
                       >
                         <div style={{ display: "flex", gap: "2" }}>
                           <img
-                            src="Logo.jpg"
-                            alt="logo"
+                            src="https://www.sateline.co.in/Logo.jpg"
+                            alt="Sateline logo"
                             style={{
                               height: "28px",
                               width: "28px",

@@ -13,7 +13,7 @@ export default function CTASection({ cta }: CTASectionProps) {
   const { title, description, buttonText, buttonHref } = cta;
 
   return (
-    <section className="py-32">
+    <section className="py-12 md:py-32">
       <div className="mx-auto max-w-7xl px-8 md:px-12">
         <div
           className="

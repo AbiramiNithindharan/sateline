@@ -6,10 +6,11 @@ import HeroBackground from "./HeroBackground";
 import AnimatedWords from "./AnimatedWords";
 import { motion } from "framer-motion";
 import { ItemVariants, ContainerVariants } from "@/lib/variants";
+import Link from "next/link";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[70vh] flex items-center p-4">
+    <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-center p-4">
       <HeroBackground />
       <div className="relative z-10 container max-w-7xl mx-auto p-4">
         <motion.div
@@ -39,14 +40,19 @@ const Hero = () => {
             className="flex justify-center items-center gap-4 p-4"
           >
             <Button
+              asChild
               variant="secondary"
               className="rounded-full font-bold tracking-wider border border-black-100"
               size="xl"
             >
-              Start Project
+              <Link href="/contact">Start Project</Link>
             </Button>
-            <Button className="rounded-full font-bold tracking-wider" size="xl">
-              View Solutions
+            <Button
+              asChild
+              className="rounded-full font-bold tracking-wider"
+              size="xl"
+            >
+              <Link href="/services">View Solutions</Link>
             </Button>
           </motion.div>
         </motion.div>

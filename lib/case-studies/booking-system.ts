@@ -1,7 +1,7 @@
 import { CaseStudy } from "@/types/CaseStudy";
 
 export const bookingSystem: CaseStudy = {
-  slug: "booking-management-system",
+  slug: "booking-systems",
 
   category: "Booking & Reservations",
 
@@ -176,7 +176,7 @@ export const bookingSystem: CaseStudy = {
       alt: "Booking Homepage",
     },
     {
-      image: "/case-studies/booking/suite-png",
+      image: "/case-studies/booking/suite.png",
       alt: "Suite Booking",
     },
 

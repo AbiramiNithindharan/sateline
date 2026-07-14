@@ -11,7 +11,7 @@ import TechnologyGrid from "@/components/ui/TechnologyGrid";
 import { BusinessImpact } from "@/components/case-studies/impact";
 import ScreenshotGallery from "@/components/case-studies/screenshots/ScreenshotGallery";
 import CTASection from "@/components/ui/CTASection";
-
+import { siteConfig } from "@/lib/seo";
 import { caseStudies, getCaseStudy } from "@/lib/case-studies";
 
 interface PageProps {
@@ -32,7 +32,39 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${study.hero.title} | Sateline Software Technologies`,
+    title: study.hero.title,
+
+    alternates: {
+      canonical: `/case-studies/${study.slug}`,
+    },
+
+    openGraph: {
+      title: study.hero.title,
+
+      url: `${siteConfig.url}/case-studies/${study.slug}`,
+
+      siteName: siteConfig.name,
+
+      images: [
+        {
+          url: siteConfig.ogImage,
+
+          width: 1200,
+
+          height: 630,
+
+          alt: study.hero.title,
+        },
+      ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+
+      title: study.hero.title,
+
+      images: [siteConfig.ogImage],
+    },
   };
 }
 export async function generateStaticParams() {
@@ -68,7 +100,12 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
       <ScreenshotGallery screenshots={study.screenshots} />
 
-      <CTASection cta={study.cta} />
+      <CTASection
+        cta={{
+          ...study.cta,
+          buttonHref: `/contact?ProjectType=${study.slug}`,
+        }}
+      />
     </>
   );
 }

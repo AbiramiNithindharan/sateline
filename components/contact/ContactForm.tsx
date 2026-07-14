@@ -1,37 +1,56 @@
 "use client";
-
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { formVariants } from "@/lib/variants";
-import { projectTypes } from "@/lib/projectTypes";
 import { toast } from "sonner";
 import { useForm } from "react-hook-form";
-import { ContactFormData } from "@/types/Contact";
-import { zodResolver } from "@hookform/resolvers/zod";
 
-import { contactSchema, ContactFormValues } from "./contactSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  getInterestOptions,
+  budgetOptions,
+  timelineOptions,
+} from "@/lib/contact";
+import { contactSchema, type ContactSchema } from "@/lib/contact";
 
 import { Button } from "@/components/ui/button";
 
 import { Input } from "@/components/ui/input";
 
 import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
+import { InputField, SelectField, TextareaField } from "../form";
+import { LoaderCircle } from "lucide-react";
 
 export default function ContactForm() {
+  const searchParams = useSearchParams();
+  const interestOptions = getInterestOptions();
+  const interest = searchParams.get("ProjectType") ?? "";
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const form = useForm<ContactFormValues>({
+  const form = useForm<ContactSchema>({
     resolver: zodResolver(contactSchema),
 
     defaultValues: {
       name: "",
       email: "",
       company: "",
-      projectType: "",
+      ProjectType: "",
+      budget: "",
+      timeline: "",
       message: "",
     },
   });
+  useEffect(() => {
+    if (!interest) return;
 
-  const onSubmit = async (data: ContactFormData) => {
+    const exists = interestOptions.some((item) => item.value === interest);
+
+    if (!exists) return;
+
+    form.setValue("ProjectType", interest);
+  }, [interest, interestOptions, form]);
+
+  const onSubmit = async (data: ContactSchema) => {
     try {
       setIsSubmitting(true);
 
@@ -53,7 +72,15 @@ export default function ContactForm() {
 
       toast.success(result.message);
 
-      form.reset();
+      form.reset({
+        name: "",
+        email: "",
+        company: "",
+        ProjectType: interest,
+        budget: "",
+        timeline: "",
+        message: "",
+      });
     } catch (error) {
       toast.error(
         error instanceof Error ? error.message : "Something went wrong.",
@@ -75,41 +102,88 @@ export default function ContactForm() {
         bg-background
         p-8
         shadow-sm
-        space-y-12
+        md:space-y-8
+        space-y-4
       "
       onSubmit={form.handleSubmit(onSubmit)}
     >
-      <Input placeholder="Your Name" {...form.register("name")} />
+      <div className="space-y-2">
+        <InputField
+          id="name"
+          label="Full Name"
+          placeholder="John Doe"
+          required
+          registration={form.register("name")}
+          error={form.formState.errors.name?.message}
+        />
+      </div>
+      <div className="space-y-2">
+        <InputField
+          id="email"
+          label="Email Address"
+          type="email"
+          placeholder="john@example.com"
+          required
+          registration={form.register("email")}
+          error={form.formState.errors.email?.message?.toString()}
+        />
+      </div>
 
-      <Input placeholder="Email Address" {...form.register("email")} />
+      <div className="space-y-2">
+        <InputField
+          id="company"
+          label="Company Name"
+          placeholder="ABC Solutions Pvt Ltd"
+          required
+          registration={form.register("company")}
+          error={form.formState.errors.company?.message?.toString()}
+        />
+      </div>
 
-      <Input placeholder="Company Name" {...form.register("company")} />
+      <div className="space-y-2">
+        <SelectField
+          id="ProjectType"
+          label="Project Type"
+          placeholder="Select Project Type"
+          required
+          options={interestOptions}
+          registration={form.register("ProjectType")}
+          error={form.formState.errors.ProjectType?.message?.toString()}
+        />
+      </div>
+      <div className="space-y-2">
+        <SelectField
+          id="budget"
+          label="Budget Limit"
+          placeholder="Select Budget(Optional)"
+          options={budgetOptions}
+          registration={form.register("budget")}
+          error={form.formState.errors.budget?.message?.toString()}
+        />
+      </div>
 
-      <select
-        {...form.register("projectType")}
-        className="
-          h-10
-          w-full
-          rounded-md
-          border
-          bg-background
-          px-3
-        "
-      >
-        <option value="">Select Project Type</option>
+      <div className="space-y-2">
+        <SelectField
+          id="timeline"
+          label="Timeline for Project"
+          placeholder="Select Timeline(Optional)"
+          options={timelineOptions}
+          registration={form.register("timeline")}
+          error={form.formState.errors.timeline?.message?.toString()}
+        />
+      </div>
 
-        {projectTypes.map((type) => (
-          <option key={type} value={type}>
-            {type}
-          </option>
-        ))}
-      </select>
-
-      <Textarea
-        rows={6}
-        placeholder="Tell us about your project..."
-        {...form.register("message")}
-      />
+      <div className="space-y-2">
+        <TextareaField
+          id="message"
+          label="Project Details"
+          placeholder="Tell us about your project, business goals, required features, timeline, and any additional information..."
+          required
+          rows={6}
+          registration={form.register("message")}
+          error={form.formState.errors.message?.message?.toString()}
+        />
+      </div>
 
       <Button
         type="submit"
@@ -117,7 +191,21 @@ export default function ContactForm() {
         size="lg"
         className="w-full"
       >
-        {isSubmitting ? "Sending..." : "Send Message"}
+        {isSubmitting ? (
+          <>
+            <LoaderCircle
+              className="
+          mr-2
+          h-4
+          w-4
+          animate-spin
+        "
+            />
+            Sending Message...
+          </>
+        ) : (
+          "Send Message"
+        )}
       </Button>
     </motion.form>
   );

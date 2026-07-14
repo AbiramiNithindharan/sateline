@@ -8,19 +8,54 @@ import { useState } from "react";
 export default function Process() {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <section className="container max-w-7xl mx-auto py-12 md:py-32">
-      <div className="text-center space-y-4 mb:15 md:mb-24">
-        <h2 className="text-3xl md:text-5xl font-bold text-gray-700">
-          How We Work
+    <section className="container max-w-7xl mx-auto py-20 md:py-32">
+      <div className="mx-auto mb-14 max-w-3xl text-center px-3">
+        <p
+          className="
+      text-sm
+      font-semibold
+      uppercase
+      tracking-[0.2em]
+      text-blue-600
+    "
+        >
+          Our Process
+        </p>
+
+        <h2
+          className="
+      mt-3
+      text-3xl
+      font-bold
+      tracking-tight
+      text-slate-900
+
+      md:text-5xl
+    "
+        >
+          From Idea to Launch
         </h2>
 
-        <p className="text-muted-foreground">
-          A proven process that transforms ideas into scalable software.
+        <p
+          className="
+      mx-auto
+      mt-6
+      max-w-2xl
+      text-base
+      leading-6
+      text-muted-foreground
+
+      md:text-lg
+    "
+        >
+          Every project follows a structured workflow that keeps communication
+          transparent, reduces risk, and ensures high-quality software delivery.
         </p>
       </div>
-
-      <div className="grid lg:grid-cols-2 gap-12">
-        <ProcessSticky currentStep={processData[activeIndex]} />
+      <div className="grid gap-12 lg:grid-cols-2">
+        <div className="hidden lg:block">
+          <ProcessSticky currentStep={processData[activeIndex]} />
+        </div>
 
         <ProcessContent setActiveIndex={setActiveIndex} />
       </div>

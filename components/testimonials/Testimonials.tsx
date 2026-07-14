@@ -6,15 +6,16 @@ export default function Testimonials() {
   const secondRow = testimonials.slice(3, 6);
 
   return (
-    <section className="py-24 overflow-hidden">
-      <div className="container max-w-7xl mx-auto px-4">
+    <section className="py-20 md:py-32 overflow-hidden">
+      <div className="container max-w-7xl mx-auto px-3">
         <div className="max-w-3xl mb-16">
           <p
             className="
               text-sm
+              font-semibold
               uppercase
               tracking-[0.2em]
-              text-blue-900
+              text-blue-600
             "
           >
             Testimonials
@@ -22,11 +23,11 @@ export default function Testimonials() {
 
           <h2
             className="
-              text-4xl
-              md:text-6xl
+              text-3xl
+              md:text-5xl
               font-bold
-              mt-4
-              text-gray-700
+              mt-3
+              text-slate-900
             "
           >
             Trusted By Businesses That Value Results
@@ -34,9 +35,15 @@ export default function Testimonials() {
 
           <p
             className="
-              mt-6
-              text-lg
-              text-muted-foreground
+                
+      mx-auto
+      mt-6
+      max-w-2xl
+      text-base
+      leading-6
+      text-muted-foreground
+
+      md:text-lg
             "
           >
             Real feedback from organizations that partnered with Sateline to
@@ -48,7 +55,7 @@ export default function Testimonials() {
 
           <div className="absolute right-0 top-0 z-10 h-full w-24 bg-linear-to-l from-background to-transparent" />
 
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             <TestimonialRow testimonials={firstRow} />
 
             <TestimonialRow testimonials={secondRow} reverse />

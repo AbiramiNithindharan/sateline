@@ -1,4 +1,4 @@
-import { ContactSchema } from "./validation";
+import { ContactSchema } from "../validation";
 import { ContactSubmissionResult } from "@/types/Contact";
 import { sendContactEmails } from "@/lib/email";
 

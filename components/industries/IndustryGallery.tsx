@@ -7,7 +7,7 @@ import IndustryCard from "./IndustryCard";
 const IndustryGallery = () => {
   const [activeIndustry, setActiveIndustry] = useState("healthcare");
   return (
-    <div className="flex h-160 gap-4">
+    <div className="flex h-115 md:h-160 gap-2 md:gap-4 ">
       {industriesData.map((industry) => {
         return (
           <IndustryCard

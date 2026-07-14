@@ -22,7 +22,7 @@ export default function TechnologyGrid({ technologies }: TechnologyGridProps) {
   );
 
   return (
-    <section className="bg-slate-50 py-24">
+    <section className="bg-slate-50 py-12 md:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Heading */}
 

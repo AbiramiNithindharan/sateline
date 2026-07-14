@@ -7,6 +7,8 @@ export default function AdminEmail({
   company,
   ProjectType,
   message,
+  budget,
+  timeline,
 }: ContactFormData) {
   return (
     <EmailLayout title="New Contact Enquiry">
@@ -39,6 +41,27 @@ export default function AdminEmail({
             </td>
             <td>{ProjectType}</td>
           </tr>
+          {budget ? (
+            <tr>
+              <td>
+                <strong>Budget</strong>
+              </td>
+              <td>{budget}</td>
+            </tr>
+          ) : (
+            ""
+          )}
+
+          {timeline ? (
+            <tr>
+              <td>
+                <strong>Timeline</strong>
+              </td>
+              <td>{timeline}</td>
+            </tr>
+          ) : (
+            ""
+          )}
         </tbody>
       </table>
 

@@ -14,7 +14,7 @@ export default function ContactInformation({ information }: Props) {
         {information.description}
       </p>
 
-      <div className="mt-10 space-y-6">
+      <div className="mt-10 space-y-2">
         {information.cards.map((card) => (
           <ContactInfoCard key={card.title} card={card} />
         ))}

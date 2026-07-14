@@ -11,3 +11,24 @@ export interface ContactInformation {
   description: string;
   cards: ContactInfoCard[];
 }
+export interface ProcessStep {
+  id: number;
+  title: string;
+  description: string;
+}
+
+export interface ProcessSectionData {
+  heading: string;
+  description: string;
+  steps: ProcessStep[];
+}
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export interface FAQSectionData {
+  heading: string;
+  description: string;
+  faqs: FAQItem[];
+}

@@ -7,7 +7,7 @@ type Props = {
 
 export default function ProcessContent({ setActiveIndex }: Props) {
   return (
-    <div className="space-y-32">
+    <div className="space-y-20 md:space-y-32">
       {processData.map((step, index) => (
         <ProcessItem
           key={step.id}

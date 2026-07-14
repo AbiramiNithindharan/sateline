@@ -7,8 +7,10 @@ export const contactSchema = z.object({
 
   company: z.string().optional(),
 
-  projectType: z.string(),
+  ProjectType: z.string().min(1, "Please select a service"),
+  budget: z.string().optional(),
 
+  timeline: z.string().optional(),
   message: z.string().min(20),
 });
 

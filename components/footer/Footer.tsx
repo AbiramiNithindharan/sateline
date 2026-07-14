@@ -18,6 +18,7 @@ export default function Footer() {
         <div className="max-w-2xl">
           <h2
             className="
+            brand
               text-5xl
               md:text-7xl
               font-bold
@@ -59,9 +60,9 @@ export default function Footer() {
             <h3 className="font-semibold mb-4">Contact</h3>
 
             <div className="space-y-3 text-muted-foreground">
-              <p>nithindharan.r@gmail.com</p>
+              <p>satelinesoftware@gmail.com</p>
 
-              <p>+91 94875 36320</p>
+              <p>+91 80567 36320</p>
 
               <p>India</p>
             </div>

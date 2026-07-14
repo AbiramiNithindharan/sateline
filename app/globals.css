@@ -193,3 +193,16 @@ h6 {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
 }
+
+.brand {
+  font-family: var(--font-outfit);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
