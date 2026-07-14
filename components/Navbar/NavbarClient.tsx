@@ -68,7 +68,8 @@ const NavbarClient = () => {
                 <Image
                   src="/logo.png"
                   alt="Sateline logo"
-                  width={300}
+                  height={24}
+                  width={24}
                   className="rounded-lg"
                 />
               </Link>
