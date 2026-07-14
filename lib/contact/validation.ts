@@ -10,7 +10,7 @@ export const contactSchema = z.object({
   email: z.email("Enter a valid email address."),
 
   company: z.string().trim().optional(),
-  ProjectType: z.string().trim().optional(),
+  ProjectType: z.string().trim(),
 
   message: z.string().trim().min(10, "Message is too short.").max(3000),
   budget: z.string().optional(),
