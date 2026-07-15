@@ -30,9 +30,9 @@ export default function ProcessItem({ step, setActiveIndex, index }: Props) {
           viewport={{ once: true }}
           className="absolute inset-0 "
         >
-          <Image
+          <img
             src={step.image}
-            fill
+
             alt={step.title}
             className="object-cover"
           />
