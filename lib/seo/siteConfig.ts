@@ -40,4 +40,9 @@ export const siteConfig = {
   email: "satelinesoftware@gmail.com",
 
   phone: "+91 8056736320",
+  language: "en-IN",
+
+  copyright: "© Sateline Software",
+
+  author: "Sateline Software",
 } as const;

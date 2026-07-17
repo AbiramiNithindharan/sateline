@@ -8,9 +8,10 @@ export const organizationSchema = {
 
   alternateName: siteConfig.shortName,
 
+  "@id": `${siteConfig.url}#organization`,
   url: siteConfig.url,
 
-  logo: `${siteConfig.url}/Logo.jpg`,
+  logo: `${siteConfig.url}/logo.png`,
 
   image: `${siteConfig.url}/images/og-image.jpg`,
 

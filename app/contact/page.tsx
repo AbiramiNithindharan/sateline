@@ -6,14 +6,25 @@ import { contactData } from "@/lib/contact";
 import type { Metadata } from "next";
 import { ProcessSection } from "@/components/contact/ProcessSection";
 import { FAQSection } from "@/components/contact/FAQSection";
+import { createWebPageSchema } from "@/lib/seo";
+import { JsonLd } from "@/lib/seo/JsonLd";
 export const metadata: Metadata = {
   title: "Contact Us | Sateline Software",
   description:
     "Get in touch with Sateline Software to discuss custom web applications, mobile apps, booking systems, CRM solutions, AI chatbots, and digital transformation projects.",
 };
 export default function ContactPage() {
+  const schema = createWebPageSchema({
+    title: "Contact Sateline Software",
+    description:
+      "Contact Sateline Software to discuss your software development, AI, web, mobile, or digital transformation project.",
+    url: "https://sateline.co.in/contact",
+    image: "https://sateline.co.in/images/contact-og.jpg",
+  });
+
   return (
     <>
+      <JsonLd data={schema} />
       <PageHero hero={contactHeroData} />
 
       <ContactIntro {...contactData.intro} />
